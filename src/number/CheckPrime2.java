@@ -2,19 +2,27 @@ package number;
 
 import java.util.Scanner;
 
-public class CheckPrime {
+public class CheckPrime2 {
     public static void main(String[] args) {
-        Integer counter = 0;
+        Integer counter = 0, j = 2;
         Scanner scanner = new Scanner(System.in);
         Integer n = scanner.nextInt();
 
-        for (int i = 1; i <= n; i++) {
-            if (n % i == 0) {
-                counter++;
+        if (n <= 1) {
+            counter = 1;
+        }
+
+        while (j <= n/2) {
+            if (n % j == 0) {
+                counter = 1;
+                break;
+            }
+            else {
+                j++;
             }
         }
 
-        if (counter == 2) {
+        if (counter == 0) {
             System.out.println(n + " is prime number");
         }
         else {
